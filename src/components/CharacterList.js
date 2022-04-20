@@ -34,9 +34,7 @@ export default function Full() {
 
     function orderByHeight() {
         setCharacterList([...characterList].sort(function (a, b) {
-            if (a.height > b.height) return 1;
-            if (a.height < b.height) return -1
-            return 0
+            return a.height - b.height;
         }));
     }
 
