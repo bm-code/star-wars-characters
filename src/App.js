@@ -1,5 +1,5 @@
-import CharacterList from "./components/CharacterList";
 import Header from "./components/Header";
+import CharacterList from "./components/CharacterList";
 
 function App() {
   return (
