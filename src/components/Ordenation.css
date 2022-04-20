@@ -99,3 +99,8 @@
     transition: none;
     transition-delay: none;
 }
+
+.order-btn.active{
+    background: #00ffdd;
+    color: #000;
+}
