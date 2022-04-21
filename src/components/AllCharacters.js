@@ -17,24 +17,16 @@ export default function AllCharacters() {
 
     useEffect(() => {
         getData(1).then(data => setChPage1(data.results))
-    }, []);
-    useEffect(() => {
         getData(2).then(data => setChPage2(data.results))
-    }, []); useEffect(() => {
         getData(3).then(data => setChPage3(data.results))
-    }, []); useEffect(() => {
         getData(4).then(data => setChPage4(data.results))
-    }, []); useEffect(() => {
         getData(5).then(data => setChPage5(data.results))
-    }, []); useEffect(() => {
         getData(6).then(data => setChPage6(data.results))
-    }, []); useEffect(() => {
         getData(7).then(data => setChPage7(data.results))
-    }, []); useEffect(() => {
         getData(8).then(data => setChPage8(data.results))
-    }, []); useEffect(() => {
         getData(9).then(data => setChPage9(data.results))
     }, []);
+
     const allCharacters = [].concat(chPage1, chPage2, chPage3, chPage4, chPage5, chPage6, chPage7, chPage8, chPage9);
 
     function showDetailsToggle(e) {
