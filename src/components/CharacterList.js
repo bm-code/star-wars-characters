@@ -24,7 +24,7 @@ export default function CharacterList() {
                     characters.map(character => {
                         return <li onClick={(e) => showDetailsToggle(e)} className="character-list__item" key={character.name}>{character.name}
                             <ul style={{ display: "none" }} id={character.name} className="character-list__item-details">
-                                {character.height === 'n/a' ? '' : <li>Height: {character.height}cm</li>}
+                                {character.height === 'unknown' ? '' : <li>Height: {character.height}cm</li>}
                                 {character.hair_color === 'n/a' ? '' : <li>Hair color: {character.hair_color}</li>}
                                 {character.gender === 'n/a' ? '' : <li>Gender: {character.gender}</li>}
                             </ul>

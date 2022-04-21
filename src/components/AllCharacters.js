@@ -43,18 +43,21 @@ export default function AllCharacters() {
     }
 
     const [orderType, setOrderType] = useState(null);
-    orderType === 0 ? allCharacters.sort(function (a, b) {
-        if (a.name > b.name) return 1;
-        if (a.name < b.name) return -1
-        return 0
-    }) : allCharacters.sort(function (a, b) {
-        return a.height - b.height;
-    })
+
+    orderType === 1 ?
+        allCharacters.sort(function (a, b) {
+            if (a.height === 'unknown') return 1
+            return a.height - b.height;
+        }) :
+        allCharacters.sort(function (a, b) {
+            if (a.name > b.name) return 1;
+            if (a.name < b.name) return -1
+            return 0
+        })
 
     return (
         <>
             <Ordernation orderType={orderType} setOrderType={setOrderType} />
-
             {
                 orderType === null ?
                     <CharacterList /> :
@@ -63,7 +66,7 @@ export default function AllCharacters() {
                             allCharacters.map(character => {
                                 return <li onClick={(e) => showDetailsToggle(e)} className="character-list__item" key={character.name}>{character.name}
                                     <ul style={{ display: "none" }} id={character.name} className="character-list__item-details">
-                                        {character.height === 'n/a' ? '' : <li>Height: {character.height}cm</li>}
+                                        {character.height === 'unknown' ? '' : <li>Height: {character.height}cm</li>}
                                         {character.hair_color === 'n/a' ? '' : <li>Hair color: {character.hair_color}</li>}
                                         {character.gender === 'n/a' ? '' : <li>Gender: {character.gender}</li>}
                                     </ul>
