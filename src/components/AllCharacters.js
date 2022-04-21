@@ -38,7 +38,7 @@ export default function AllCharacters() {
 
     orderType === 1 ?
         allCharacters.sort(function (a, b) {
-            if (a.height === 'unknown') return 1
+            if (a.height === 'unknown') return 2
             return a.height - b.height;
         }) :
         allCharacters.sort(function (a, b) {
