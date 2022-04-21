@@ -7,12 +7,12 @@ export default function Ordernation({ orderType, setOrderType }) {
                 <span></span>
                 <span></span>
                 <span></span>
-                <span></span> Order by name</button>
+                <span></span> List by name</button>
             <button onClick={() => setOrderType(1)} className={orderType === 1 ? "order-btn active" : "order-btn"}>
                 <span></span>
                 <span></span>
                 <span></span>
-                <span></span>Order by height</button>
+                <span></span>List by height</button>
         </div>
     )
 }

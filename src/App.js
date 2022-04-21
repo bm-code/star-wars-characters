@@ -1,11 +1,15 @@
 import Header from "./components/Header";
-import CharacterList from "./components/CharacterList";
+import Pagination from "./components/Pagination";
+import AllCharacters from "./components/AllCharacters";
 
 function App() {
   return (
     <div>
       <Header />
-      <CharacterList />
+      <section className="main">
+        <AllCharacters />
+        <Pagination />
+      </section>
     </div>
   );
 }

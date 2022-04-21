@@ -2,26 +2,15 @@ import './CharacterList.css'
 import { getData } from '../services/api';
 import { useState, useEffect } from 'react';
 import Pagination from './Pagination';
-import Ordernation from './Ordernation';
 
 export default function CharacterList() {
 
     const [page, setPage] = useState(1);
     const [characters, setCharacters] = useState([])
-    const [orderType, setOrderType] = useState(0);
 
     useEffect(() => {
-        orderType === 0 ?
-            getData(page).then(data => setCharacters((data.results).sort(function (a, b) {
-                if (a.name > b.name) return 1;
-                if (a.name < b.name) return -1
-                return 0
-            })))
-            : getData(page).then(data => setCharacters((data.results).sort(function (a, b) {
-                return a.height - b.height;
-            })))
-                .catch(error => console.error(`Ha habido un error de conexión: ${error.message}`))
-    }, [page, orderType]);
+        getData(page).then(data => setCharacters((data.results)))
+    }, [page]);
 
     function showDetailsToggle(e) {
         e.target.childNodes[1].style.display === 'none' ?
@@ -29,8 +18,7 @@ export default function CharacterList() {
     }
 
     return (
-        <section className="main">
-            <Ordernation orderType={orderType} setOrderType={setOrderType} />
+        <>
             <ul className="character-list">
                 {
                     characters.map(character => {
@@ -45,6 +33,6 @@ export default function CharacterList() {
                 }
             </ul>
             <Pagination page={page} setPage={setPage} />
-        </section>
+        </>
     )
 }
